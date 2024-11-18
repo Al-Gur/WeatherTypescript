@@ -1,9 +1,9 @@
-interface Props {
+interface FormProps {
     getWeather: (city: string) => void,
-} 
+}
 
-const Form = ({getWeather}: Props) => {
-    const getCity = e: any => {
+const Form = ({getWeather}: FormProps) => {
+    const getCity = (e: any) => {
         e.preventDefault();
         const city: string = e.target.city.value.trim();
         getWeather(city);

@@ -5,10 +5,10 @@ import {useState} from "react";
 import {api_key, base_url} from "../utils/constants.ts";
 
 const Data = () => {
-    const [weatherInfo, setWeatherInfo] = useState<WeatherObject>({});
+    const [weatherInfo, setWeatherInfo] = useState<Partial<WeatherObject>>({});
     const [message, setMessage] = useState('Enter city name');
 
-    const getWeather = city: string => {
+    const getWeather = (city: string) => {
         fetch(`${base_url}?q=${city}&appid=${api_key}&units=metric`)
             .then(result => result.json())
             .then(data => {
@@ -30,7 +30,7 @@ const Data = () => {
     return (
         <div>
             <Form getWeather={getWeather}/>
-            <Weather message={message} weather={weatherInfo}/>
+            <Weather message={message} weather={weatherInfo as WeatherObject}/>
         </div>
     );
 };
