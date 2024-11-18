@@ -2,7 +2,7 @@ import Form from "./Form.tsx";
 import Weather from "./Weather.tsx";
 import WeatherObject from "./WeatherObject.tsx";
 import {useState} from "react";
-import {api_key, base_url} from "../utils/constants.js";
+import {api_key, base_url} from "../utils/constants.ts";
 
 const Data = () => {
     const [weatherInfo, setWeatherInfo] = useState<WeatherObject>({});
